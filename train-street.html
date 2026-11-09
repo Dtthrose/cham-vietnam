@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Train Street Café · Chút'Việt</title>
+<meta name="description" content="Box 01 of the Chút'Việt collection: Train Street Café, Hà Nội.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Caveat:wght@500&family=Young+Serif&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ======================================================
+     TRANG CHO QR CỦA HỘP 1. Để làm trang cho hộp 2, 3:
+     copy file này, đổi tên (vd: iced-tea.html), sửa chữ,
+     tên ảnh, tên file audio và YOUTUBE_ID ở cuối file.
+     ====================================================== -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">Chút'Việt</a>
+    <a class="back" href="index.html#collection">See the whole collection</a>
+  </div>
+</header>
+
+<main>
+  <div class="box-hero">
+    <div class="wrap narrow">
+      <figure class="art ratio-card">
+        <span class="ph">Tranh hộp đường tàu<br>images/box-train-street.jpg</span>
+        <img src="images/box-train-street.jpg" alt="Watercolor of the Hanoi train street café" onerror="this.remove()">
+      </figure>
+      <h1>Train Street Café</h1>
+      <p class="note">Hà Nội, mid-afternoon. Someone saved you a seat.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap narrow media">
+      <p class="eyebrow">Listen</p>
+      <div class="listen">
+        <p>Close your eyes and press play.</p>
+        <!-- AUDIO: đặt file vào audio/train-street.mp3 -->
+        <audio id="sound" controls preload="none" src="audio/train-street.mp3"></audio>
+        <div class="ph" id="sound-ph" hidden>Chưa có audio. Đặt file vào audio/train-street.mp3</div>
+      </div>
+
+      <p class="eyebrow" style="margin-top:28px">Watch</p>
+      <div class="video" id="video">Chưa có video. Dán mã YouTube vào YOUTUBE_ID ở cuối file này.</div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="wrap narrow">
+      <p class="eyebrow">The story</p>
+      <h2>Coffee, one step from the rails</h2>
+      <!-- Sửa câu chuyện ở đây -->
+      <p>In the old quarter of Hà Nội, a railway runs between rows of narrow houses. People live a few steps from the tracks, and small cafés set out low plastic stools right beside them.</p>
+      <p>You sit, order a cà phê sữa, and watch the street go about its day. When a train is coming, the owner calls out, everyone pulls their stools back, and the carriages pass close enough to feel the air move. Then the stools come back out and the conversation picks up where it stopped.</p>
+      <p>Brew one of the drip bags in this box, and take a minute to sit with it the way people do here.</p>
+      <p><a href="index.html#brew">How to brew a drip bag</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Box 01 of 03 · <a href="index.html#collection">See the other scenes</a></p>
+    <div class="stamp">Việt Nam<b>Hà Nội</b>Box 01</div>
+  </div>
+</footer>
+
+<script>
+  /* ====== VIDEO: dán mã YouTube vào đây ======
+     Ví dụ link https://youtu.be/AbCdEf12345  ->  mã là AbCdEf12345 */
+  var YOUTUBE_ID = "";
+
+  if (YOUTUBE_ID) {
+    var v = document.getElementById("video");
+    v.textContent = "";
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + YOUTUBE_ID + "?rel=0&playsinline=1";
+    f.title = "Train Street Café video";
+    f.allow = "accelerometer; encrypted-media; gyroscope; picture-in-picture";
+    f.allowFullscreen = true;
+    v.appendChild(f);
+  }
+
+  /* Ẩn trình phát và hiện chỗ trống nếu chưa có file audio */
+  fetch("audio/train-street.mp3", { method: "HEAD" }).then(function (r) {
+    if (!r.ok) throw 0;
+  }).catch(function () {
+    document.getElementById("sound").hidden = true;
+    document.getElementById("sound-ph").hidden = false;
+  });
+</script>
+</body>
+</html>
