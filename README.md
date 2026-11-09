@@ -1,30 +1,33 @@
 # cham-vietnam
 
-Website tĩnh của Chạm Vietnam (HTML + CSS + JS trong một file, không cần build).
+Website Chạm Vietnam, viết bằng Vite + React.
+
+## Chạy trên máy
+
+```
+npm install
+npm run dev      # xem thử, thường ở http://localhost:5173
+npm run build    # build ra thư mục dist/
+```
+
+## Các trang
+
+- `/`: trang chủ thương hiệu
+- `/street-charm`: bộ sưu tập Street Charm
+- `/train-street`: hộp 01 Train Street Café (trang mà QR trên nắp hộp mở ra)
+  - Các phần trong trang: `#box`, `#picture-story`, `#scent-taste`, `#watch`
+  - Link QR mở thẳng phần video: `https://<tên-miền>/train-street#watch`
 
 ## Cấu trúc
 
-- `index.html`: toàn bộ website, gồm 3 trang chuyển bằng dấu `#`:
-  - `/#home`: trang chủ thương hiệu
-  - `/#street-charm`: bộ sưu tập Street Charm
-  - `/#train-street`: hộp 01 Train Street Café (trang QR trên nắp hộp mở ra)
-- `images/`: tranh màu nước (`train-street.jpg`, `box-iced-tea.jpg`, `box-delivery.jpg`)
-- `video/`: video của hộp 01, đặt tên `train-street.mp4`
-- `vercel.json`: link ngắn cho QR (`/train-street` → `/#train-street`, `/street-charm` → `/#street-charm`) và cache ảnh, video 1 ngày
-
-Link in trên mã QR của hộp 01: `https://<tên-miền>/train-street`
-
-## Thay ảnh, video
-
-- Video hộp 01: đặt file vào `video/train-street.mp4` (hoặc sửa `VIDEO_SRC` cuối `index.html`).
-- Tranh hộp: thay file cùng tên trong `images/`.
-
-## Xem thử trên máy
-
-Chạy `python3 -m http.server` trong thư mục này rồi vào http://localhost:8000
+- `src/pages/`: Home, StreetCharm, TrainStreet
+- `src/components/`: header, footer, logo, thẻ hộp, đồng hồ pha, trình phát video, hình vẽ nắp hộp và túi drip bag
+- `src/data/streetCharm.js`: danh sách hộp trong bộ sưu tập (thêm hộp mới ở đây)
+- `src/lib/art.js`: tranh vẽ bằng code (bìa Tết Việt, cành cà phê, thẻ quà)
+- `src/styles.css`: toàn bộ CSS
+- `public/images/`: tranh màu nước
+- `public/video/`: video hộp 01, đặt tên `train-street.mp4`
 
 ## Deploy lên Vercel
 
-1. Vào https://vercel.com/new, chọn Import repo `cham-vietnam`.
-2. Framework Preset: **Other**. Để trống Build Command và Output Directory.
-3. Bấm Deploy. Mỗi lần push lên nhánh `main`, Vercel tự deploy lại.
+Import repo trên https://vercel.com/new. Vercel tự nhận Vite (`vercel.json` đã khai báo), không cần chỉnh Build Command hay Output Directory. Mỗi lần push lên `main`, Vercel tự deploy lại.
