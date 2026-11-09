@@ -10,7 +10,9 @@ Website tĩnh của Chạm Vietnam (HTML + CSS + JS trong một file, không c�
   - `/#train-street`: hộp 01 Train Street Café (trang QR trên nắp hộp mở ra)
 - `images/`: tranh màu nước (`train-street.jpg`, `box-iced-tea.jpg`, `box-delivery.jpg`)
 - `video/`: video của hộp 01, đặt tên `train-street.mp4`
-- `style.css`, `train-street.html`: bản Chút'Việt cũ, không còn dùng
+- `vercel.json`: link ngắn cho QR (`/train-street` → `/#train-street`, `/street-charm` → `/#street-charm`) và cache ảnh, video 1 ngày
+
+Link in trên mã QR của hộp 01: `https://<tên-miền>/train-street`
 
 ## Thay ảnh, video
 
